@@ -193,7 +193,7 @@
         </section>
         <!-- most view -->
         
-        <div class="container border-radius:1rem"  >
+        <!-- <div class="container border-radius:1rem"  >
             <div class="text-center">
             <h4>Views books</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis voluptates tenetur natus voluptatibus odit? Cumque, doloribus possimus quas voluptatum vero, quis id, quo adipisci provident sapiente delectus numquam minima ipsa?</p>
@@ -211,7 +211,7 @@
                 <td>fewj</td>
              </tr>
           </table>
-            </div>       
+            </div>        -->
         <!-- most view -->
 
         <!-- Footer-->
