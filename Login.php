@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="Signup.php">Create an account</a></p>
-                      <a href="../dashboard/adminUi.html">dashboard</a>
+                      <a href="../dashboard/adminUi.php">dashboard</a>
                     </div>
                   </form>
 
