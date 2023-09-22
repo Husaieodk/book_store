@@ -14,12 +14,16 @@ if(isset($_POST['submit']))
 {
       
    $name = $_POST['user_name'];
-   $gmail = $_POST['user_gmail'];
-   $password = $_POST['user_password'];
+   $gmail =  $_POST['user_gmail'];
+   $password =  $_POST['user_password'];
+   $e_password = md5($password);
+
+  //  $pwd = $_POST['password'];
+  //  $encrypted_pwd = md5($pwd);
    
 }
 $sql = "INSERT INTO user (user_name, user_gmail, user_password)
-VALUES ('$name', '$gmail', '$password')";
+VALUES ('$name', '$gmail', '$e_password')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
