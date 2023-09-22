@@ -34,7 +34,7 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
             <div class="container px-4 px-lg-5"style=" padding: 0.3rem;">
                 <a class="navbar-brand" href="#!">Digitel Library</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -62,7 +62,8 @@
                     </form>
                 </div>
             </div>
-        </nav>
+        </nav> -->
+        <?php  require_once('main/header.php'); ?>
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -215,7 +216,7 @@
 
         <!-- Footer-->
         
-        <footer class="py-5 bg-dark">
+        <!-- <footer class="py-5 bg-dark">
             <div style="background-color:#212529; height :15rem;">
             
                 <div class="d-flex justify-content-center  container" style="gap: 8rem;  ">
@@ -259,7 +260,8 @@
                          </div>
                       </div>
                 </div>
-                </div></footer>
+                </div></footer> -->
+                <?php  require_once('main/footer.php'); ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
