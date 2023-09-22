@@ -1,3 +1,34 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = " ";
+$dbname = "user";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+if(isset($_POST['submit']))
+{
+      
+   $name = $_POST['user_name'];
+   $gmail = $_POST['user_gmail'];
+   $password = $_POST['user_password'];
+   
+}
+$sql = "INSERT INTO user (user_name, user_gmail, user_password)
+VALUES ('$name', '$gmail', '$password')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
