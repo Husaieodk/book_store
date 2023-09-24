@@ -1,3 +1,60 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "book_store";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}else{
+    // echo"connected";
+}
+
+
+
+if(isset($_POST['']))
+{
+      
+   $l_name = $_POST['user_name'];
+   $l_gmail =  $_POST['user_gmail'];
+   $password =  $_POST['user_password'];
+   $e_password = md5($password);
+    echo $l_gmail;
+
+    $sql="select * from user where (email='$l_gmail');";
+
+    // $res=mysqli_query($conn,$sql);
+
+    if (mysqli_num_rows($res) > 0) {
+      
+      $row = mysqli_fetch_assoc($res);
+      if($l_gmail ==isset($row['user_gmail']))
+      {
+        header("Location: index.php");
+        exit();
+      }
+      else
+      {
+         echo "email wrong";
+      }
+    }
+
+
+
+if ($conn->query($sql) === TRUE) {
+  header("Location: Login.php");
+exit();
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  
+
+ $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,8 +92,8 @@
                       <label for="yourUsername" class="form-label">Please enter your username.</label>
                       <div class="input-group has-validation">
                         <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
-                        <input type="email" name="useremail" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="email" name="user_gmail" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">Please enter your gmail.</div>
                       </div>
                     </div>
 
@@ -53,7 +110,7 @@
                       </div>
                     </div> -->
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="Signup.php">Create an account</a></p>

@@ -1,15 +1,20 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = " ";
-$dbname = "user";
+$password = "";
+$dbname = "book_store";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
+}else{
+    // echo"connected";
 }
+
+
+
 if(isset($_POST['submit']))
 {
       
@@ -17,21 +22,23 @@ if(isset($_POST['submit']))
    $gmail =  $_POST['user_gmail'];
    $password =  $_POST['user_password'];
    $e_password = md5($password);
+    echo $name;
 
-  //  $pwd = $_POST['password'];
-  //  $encrypted_pwd = md5($pwd);
-   
-}
-$sql = "INSERT INTO user (user_name, user_gmail, user_password)
+   $sql = "INSERT INTO user (user_name, user_gmail, user_password)
 VALUES ('$name', '$gmail', '$e_password')";
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
-$conn->close();
+
+if ($conn->query($sql) === TRUE) {
+  header("Location: Login.php");
+exit();
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  
+
+ $conn->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,8 +67,15 @@ $conn->close();
                         <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                         <p class="text-center small">Enter your personal details to create account</p>
                       </div>
+                      <!-- <form action="form.php" method="post">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+    </div>
+    <button type="submit">Submit</button>
+</form> -->
     
-                      <form class="row g-3 needs-validation" novalidate>
+                      <form class="row g-3 needs-validation"  action="Signup.php" method="post" novalidate>
                         <div class="col-12">
                           <label for="yourName" class="form-label">Please, enter your name!</label>
                           <input type="text" name="user_name" class="form-control" id="yourName">
@@ -97,8 +111,8 @@ $conn->close();
                           </div>
                         </div> -->
                         <div class="col-12">
-                          <button class="btn btn-primary w-100" type="submit" name="submit">Create Account</button>
-                        </div>
+                      <button class="btn btn-primary w-100" type="submit" name="submit">Sign</button>
+                    </div>
                         <div class="col-12">
                           <p class="small mb-0">Already have an account? <a href="Login.php">Log in</a></p>
                         </div>
