@@ -1,44 +1,44 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "book_store";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "book_store";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}else{
-    // echo"connected";
-}
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $dbname);
+// // Check connection
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }else{
+//     // echo"connected";
+// }
 
 
 
-if(isset($_POST['submit']))
-{
+// if(isset($_POST['submit']))
+// {
       
-   $name = $_POST['user_name'];
-   $gmail =  $_POST['user_gmail'];
-   $password =  $_POST['user_password'];
-   $e_password = md5($password);
-    echo $name;
+//    $name = $_POST['user_name'];
+//    $gmail =  $_POST['user_gmail'];
+//    $password =  $_POST['user_password'];
+//    $e_password = md5($password);
+//     echo $name;
 
-   $sql = "INSERT INTO user (user_name, user_gmail, user_password)
-VALUES ('$name', '$gmail', '$e_password')";
+//    $sql = "INSERT INTO user (user_name, user_gmail, user_password)
+// VALUES ('$name', '$gmail', '$e_password')";
 
 
 
-if ($conn->query($sql) === TRUE) {
-  header("Location: Login.php");
-exit();
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+// if ($conn->query($sql) === TRUE) {
+//   header("Location: Login.php");
+// exit();
+// } else {
+//     echo "Error: " . $sql . "<br>" . $conn->error;
+//   }
   
 
- $conn->close();
-}
+//  $conn->close();
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

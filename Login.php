@@ -1,59 +1,59 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "book_store";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "book_store";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}else{
-    // echo"connected";
-}
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $dbname);
+// // Check connection
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }else{
+//     // echo"connected";
+// }
 
 
 
-if(isset($_POST['']))
-{
+// if(isset($_POST['']))
+// {
       
-   $l_name = $_POST['user_name'];
-   $l_gmail =  $_POST['user_gmail'];
-   $password =  $_POST['user_password'];
-   $e_password = md5($password);
-    echo $l_gmail;
+//    $l_name = $_POST['user_name'];
+//    $l_gmail =  $_POST['user_gmail'];
+//    $password =  $_POST['user_password'];
+//    $e_password = md5($password);
+//     echo $l_gmail;
 
-    $sql="select * from user where (email='$l_gmail');";
+//     $sql="select * from user where (email='$l_gmail');";
 
-    // $res=mysqli_query($conn,$sql);
+//     // $res=mysqli_query($conn,$sql);
 
-    if (mysqli_num_rows($res) > 0) {
+//     if (mysqli_num_rows($res) > 0) {
       
-      $row = mysqli_fetch_assoc($res);
-      if($l_gmail ==isset($row['user_gmail']))
-      {
-        header("Location: index.php");
-        exit();
-      }
-      else
-      {
-         echo "email wrong";
-      }
-    }
+//       $row = mysqli_fetch_assoc($res);
+//       if($l_gmail ==isset($row['user_gmail']))
+//       {
+//         header("Location: index.php");
+//         exit();
+//       }
+//       else
+//       {
+//          echo "email wrong";
+//       }
+//     }
 
 
 
-if ($conn->query($sql) === TRUE) {
-  header("Location: Login.php");
-exit();
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+// if ($conn->query($sql) === TRUE) {
+//   header("Location: Login.php");
+// exit();
+// } else {
+//     echo "Error: " . $sql . "<br>" . $conn->error;
+//   }
   
 
- $conn->close();
-}
+//  $conn->close();
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

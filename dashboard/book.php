@@ -1,10 +1,89 @@
 <?php 
+error_reporting(0);
+ 
+$msg = "";
 if(isset($_POST['create']))
 {
-      
- echo $name = $_POST['book_name'];
+// echo $id = rand(1,100);  
+// echo $name = $_POST['book_name'];
+// echo $price =  $_POST['book_price'];
+// echo $filename =  $_POST['book_filename'];
+// echo $est_date =  $_POST['book_est_date'];
+// echo $author =  $_POST['book_author'];
+// echo  $isnbno =  $_POST['book_isnbno'];
 
-echo $pricechar =  $_POST['book_price'];
+// echo $publisher =  $_POST['book_publisher'];
+// echo $pages =  $_POST['book_pages'];
+// echo $description =  $_POST['book_description'];
+// echo $type =  $_POST['book_type'];
+// if (empty($isnbno)) {
+//     echo "<p>Variable is empty.</p>";
+//   }
+        $errname = $errprice = $errfilename = $errest_date = $errauthor = $errisnbno =$errpublisher = $errpages = $errdescription = $errtype = " ";
+        $name = $price =$filename = $est_date = $author = $isnbno = $publisher = $pages = $description = $type =" ";
+               
+            if (empty ($_POST['book_name']))
+                {  
+                    $errname = "Error! You didn't enter the book name.";  
+                            //  echo $errMsg;  
+                } else 
+                {  
+                    $name = $_POST['book_name'];  
+                }  
+
+            if (empty ($_POST['book_price']))
+                {  
+                    $errprice  = "Error! You didn't enter the book price.";  
+                            //  echo $errMsg;  
+                } else
+                {  
+                    $price = $_POST['book_price'];  
+                } 
+
+                if (isset($_FILES["book_filename"])) {  //
+                //    echo $n = $_POST['book_filename'];
+                    $filename = $_FILES["book_filename"]["name"];
+                    $tempname = $_FILES["book_filename"]["tmp_name"];
+                    $folder = "./image/" . $filename;
+                 
+                    // $db = mysqli_connect("localhost", "root", "", "geeksforgeeks");
+                 
+                    // // Get all the submitted data from the form
+                    // $sql = "INSERT INTO image (filename) VALUES ('$filename')";
+                 
+                    // // Execute query
+                    // mysqli_query($db, $sql);
+                 
+                    // Now let's move the uploaded image into the folder: image
+                    if (move_uploaded_file($tempname, $folder)) {
+                        $errfilename  = "Image uploaded successfully!";
+                    } else {
+                        $errfilename =  "Failed to upload image!";
+                    }
+                }   
+
+
+
+                // $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";  
+                // if (!preg_match ($pattern,$_POST['book_filename']) || empty ($_POST['book_filename'])) {  
+                //     $errfilename  = "Error! You didn't enter the G-mail.";  
+                //             //  echo $errMsg;  
+                // } else {  
+                //     $filename = $_POST['book_filename'];  
+                // }
+                
+                // $email = $_POST ["Email"];  
+                // $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";  
+                // if (!preg_match ($pattern, $email) ){  
+                //     $ErrMsg = "Email is not valid.";  
+                //             echo $ErrMsg;  
+                // } else {  
+                //     echo "Your valid email address is: " .$email;  
+                // } 
+
+
+
+
 }
 
 ?>
@@ -66,21 +145,26 @@ echo $pricechar =  $_POST['book_price'];
                   
                     
                     <div class="">
-                      <form method="post" action="book.php">
+                      <form method="post" action="book.php" enctype="multipart/form-data">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Books Details</h6>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name">
                                 <label for="floatingInput">Enter your book name</label>
+                                <!-- <span style="color: red;">  </span> -->
                             </div>
                             
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control" id="book_price" name="book_price" placeholder="Enter your book price">
                                 <label for="floatingInput">Enter your book price</label>
+                                <!-- <span style="color: red;">   </span> -->
                             </div>
+                            <!-- upload image -->
                             <div class="form-floating mb-3" >
                                 <input type="file" class="form-control" id="floatingInput" name="book_filename" accept=".png, .jpg" style="background-color: black;" >
-                                <label for="floatingInput">Upload your book image</label>
+                               <span style=""> <?php echo $errfilename ?>   </span>
+                                <!-- <label for="floatingInput">Photo</label> -->
+                               
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="date" class="form-control" id="floatingInput" name="book_est_date" placeholder="Book eshtablish date">
@@ -91,8 +175,10 @@ echo $pricechar =  $_POST['book_price'];
                                 <label for="floatingInput">Book's author</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="book_isnbno" placeholder="Book ISBN No">
+                                <input type="number" class="form-control" id="floatingInput" name="book_isnbno" placeholder="Book ISBN No">
                                 <label for="floatingInput">Book ISBN No</label>
+                               
+                              
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" name="book_publisher" placeholder="Book Publisher">
@@ -112,8 +198,13 @@ echo $pricechar =  $_POST['book_price'];
                                     <option value="English">English</option>
                                 </select>
                             </div>
+                            <div class="d-flex">
                             <div> 
                             <button class="btn btn-success" type="submit" name="create">Create</button>
+                            </div>
+                            <div> 
+                            <button class="btn btn-outline-primary" type="reset" >Clear</button>
+                            </div>
                             </div>
                         
                         </div>
