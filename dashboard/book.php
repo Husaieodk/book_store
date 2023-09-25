@@ -148,52 +148,61 @@ if(isset($_POST['create']))
                       <form method="post" action="book.php" enctype="multipart/form-data">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Books Details</h6>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name" required>
                                 <label for="floatingInput">Enter your book name</label>
                                 <!-- <span style="color: red;">  </span> -->
                             </div>
-                            
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="book_price" name="book_price" placeholder="Enter your book price">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="number" class="form-control" id="book_price" name="book_price" placeholder="Enter your book price" required>
                                 <label for="floatingInput">Enter your book price</label>
                                 <!-- <span style="color: red;">   </span> -->
                             </div>
                             <!-- upload image -->
-                            <div class="form-floating mb-3" >
-                                <input type="file" class="form-control" id="floatingInput" name="book_filename" accept=".png, .jpg" style="background-color: black;" >
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1" >
+                                <input type="file" class="form-control" id="floatingInput" name="book_filename" accept=".png, .jpg" style="background-color: black;" required>
                                <span style=""> <?php echo $errfilename ?>   </span>
                                 <!-- <label for="floatingInput">Photo</label> -->
                                
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="date" class="form-control" id="floatingInput" name="book_est_date" placeholder="Book eshtablish date">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="date" class="form-control" id="floatingInput" name="book_est_date" placeholder="Book eshtablish date" required>
                                 <label for="floatingInput">Book eshtablish date</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="book_author" placeholder="Book's author">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control" id="floatingInput" name="book_author" placeholder="Book's author" required>
                                 <label for="floatingInput">Book's author</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="book_isnbno" placeholder="Book ISBN No">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="number" class="form-control" id="floatingInput" name="book_isnbno" placeholder="Book ISBN No" required>
                                 <label for="floatingInput">Book ISBN No</label>
                                
                               
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="book_publisher" placeholder="Book Publisher">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control" id="floatingInput" name="book_publisher" placeholder="Book Publisher" required>
                                 <label for="floatingInput">Book Publisher</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="book_pages" placeholder="Book Pages">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="number" class="form-control" id="floatingInput" name="book_pages" placeholder="Book Pages" required>
                                 <label for="floatingInput">Book Pages</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="book_description" placeholder="Book Description">
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" required>
                                 <label for="floatingInput">Book Description</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <select class="form-select" id="floatingSelect" name="book_type" >
+                            <span style="color: red;">*</span><br>
+                            <div class="form-floating mb-1">
+                                <select class="form-select" id="floatingSelect" name="book_type" required>
                                     <option value="Science"selected>Science</option>
                                     <option value="English">English</option>
                                 </select>
