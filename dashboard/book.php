@@ -4,63 +4,66 @@ error_reporting(0);
 $msg = "";
 if(isset($_POST['create']))
 {
-// echo $id = rand(1,100);  
-// echo $name = $_POST['book_name'];
-// echo $price =  $_POST['book_price'];
-// echo $filename =  $_POST['book_filename'];
-// echo $est_date =  $_POST['book_est_date'];
-// echo $author =  $_POST['book_author'];
-// echo  $isnbno =  $_POST['book_isnbno'];
+  
+echo $name = $_POST['book_name'];
+echo $price =  $_POST['book_price'];
 
-// echo $publisher =  $_POST['book_publisher'];
-// echo $pages =  $_POST['book_pages'];
-// echo $description =  $_POST['book_description'];
-// echo $type =  $_POST['book_type'];
-// if (empty($isnbno)) {
-//     echo "<p>Variable is empty.</p>";
-//   }
-        $errname = $errprice = $errfilename = $errest_date = $errauthor = $errisnbno =$errpublisher = $errpages = $errdescription = $errtype = " ";
-        $name = $price =$filename = $est_date = $author = $isnbno = $publisher = $pages = $description = $type =" ";
-               
-            if (empty ($_POST['book_name']))
-                {  
-                    $errname = "Error! You didn't enter the book name.";  
-                            //  echo $errMsg;  
-                } else 
-                {  
-                    $name = $_POST['book_name'];  
-                }  
-
-            if (empty ($_POST['book_price']))
-                {  
-                    $errprice  = "Error! You didn't enter the book price.";  
-                            //  echo $errMsg;  
-                } else
-                {  
-                    $price = $_POST['book_price'];  
-                } 
-
-                if (isset($_FILES["book_filename"])) {  //
+    //    echo $filename =  $_POST['book_filename'];
+            if (isset($_FILES["book_filename"])) {  //
                 //    echo $n = $_POST['book_filename'];
                     $filename = $_FILES["book_filename"]["name"];
                     $tempname = $_FILES["book_filename"]["tmp_name"];
                     $folder = "./image/" . $filename;
-                 
+                
                     // $db = mysqli_connect("localhost", "root", "", "geeksforgeeks");
-                 
+                
                     // // Get all the submitted data from the form
                     // $sql = "INSERT INTO image (filename) VALUES ('$filename')";
-                 
+                
                     // // Execute query
                     // mysqli_query($db, $sql);
-                 
+                
                     // Now let's move the uploaded image into the folder: image
                     if (move_uploaded_file($tempname, $folder)) {
                         $errfilename  = "Image uploaded successfully!";
                     } else {
                         $errfilename =  "Failed to upload image!";
                     }
-                }   
+                }  
+
+echo $est_date =  $_POST['book_est_date'];
+echo $author =  $_POST['book_author'];
+echo  $isnbno =  $_POST['book_isnbno'];
+
+echo $publisher =  $_POST['book_publisher'];
+echo $pages =  $_POST['book_pages'];
+echo $description =  $_POST['book_description'];
+echo $type =  $_POST['book_type'];
+// if (empty($isnbno)) {
+//     echo "<p>Variable is empty.</p>";
+//   }
+        // $errname = $errprice = $errfilename = $errest_date = $errauthor = $errisnbno =$errpublisher = $errpages = $errdescription = $errtype = " ";
+        // $name = $price =$filename = $est_date = $author = $isnbno = $publisher = $pages = $description = $type =" ";
+               
+        //     if (empty ($_POST['book_name']))
+        //         {  
+        //             $errname = "Error! You didn't enter the book name.";  
+        //                     //  echo $errMsg;  
+        //         } else 
+        //         {  
+        //             $name = $_POST['book_name'];  
+        //         }  
+
+        //     if (empty ($_POST['book_price']))
+        //         {  
+        //             $errprice  = "Error! You didn't enter the book price.";  
+        //                     //  echo $errMsg;  
+        //         } else
+        //         {  
+        //             $price = $_POST['book_price'];  
+        //         } 
+
+                
 
 
 
@@ -200,10 +203,10 @@ if(isset($_POST['create']))
                                 <input type="text" class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" required>
                                 <label for="floatingInput">Book Description</label>
                             </div>
-                            <span style="color: red;">*</span><br>
+                            <p>Select Category</p>
                             <div class="form-floating mb-1">
-                                <select class="form-select" id="floatingSelect" name="book_type" required>
-                                    <option value="Science"selected>Science</option>
+                                <select class="form-select" id="floatingSelect" name="book_type">
+                                    <option value="Science" >Science</option>
                                     <option value="English">English</option>
                                 </select>
                             </div>
