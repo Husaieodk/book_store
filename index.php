@@ -114,20 +114,67 @@
          </div>   
             
         <!-- Section-->
-        <section class="">
-            <div class="container px-4 px-lg-5 mt-3">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
+<section class="">
+
+        <?php 
+                                  error_reporting(0);
+ 
+                                  $msg = "";
+                                  
+                                  $servername = "localhost";
+                                  $username = "root";
+                                  $password = "";
+                                  $dbname = "book_store";
+                                  
+                                  // Create connection
+                                  $conn = new mysqli($servername, $username, $password, $dbname);
+                                  // Check connection
+                                  if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                  }
+
+                                    $sql = "SELECT * FROM book ";
+                                    
+                                    
+                                    if ($result = $conn->query($sql)) 
+                                    {
+                                    
+                                        while ($row = $result->fetch_assoc()) 
+                                        {
+                                            $b_id      = $row["b_id"];
+                                            $b_name     = $row["b_name"];
+                                            $b_price    = $row["b_price"];
+                                            $b_filename = $row["b_filename"];
+                                            $b_est_date = $row["b_est_date"];
+                                            $b_author   = $row["b_author"];
+                                            $b_isbnno   = $row["b_isbnno"];
+                                            $b_publisher= $row["b_publisher"];
+                                            $b_pages    = $row["b_pages"];
+                                            $b_description = $row["b_description"];
+                                            // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
+                                      
+                                   
+                                  ?>
+
+                                 
+                                  
+                                  
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+                    <div class="col mb-3">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img src="../dashboard/image/<?php echo $b_filename?>">
                             <!-- Product details-->
+                            <hr>
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <?php echo $b_name ?>
+                                    <h5 class="fw-bolder">
                                     <!-- Product price-->
-                                    $40.00 - $80.00
+                                    <?php echo "Rs." .$b_price ?>
+                                    </h5>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -136,61 +183,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
-        </section>
+
+            <?php 
+                                     }
+                                    }
+                                    $conn->close();
+                                   ?> 
+</section>
         <!-- most view -->
         
         <!-- <div class="container border-radius:1rem"  >
