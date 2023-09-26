@@ -18,7 +18,28 @@ if ($conn->connect_error) {
 if(isset($_POST['create']))
 {
   
-         $name = $_POST['book_name'];
+        //  $name = $_POST['book_name'];
+
+               
+                   $name = $_POST['book_name'];
+                //    $sql="select * from book where (b_name =' $name ')";
+
+                //    $res=mysqli_query($conn,$sql);
+             
+                //    if (mysqli_num_rows($res) > 0) {
+                     
+                //      $row = mysqli_fetch_assoc($res);
+                //      if($name==isset($row['b_name']))
+                //      {
+                //              echo "Book name is already exists";
+                //      }
+                   
+                //     else{
+                        
+                //   echo  $name = $_POST['book_name'];
+                //     }
+                // }  
+
          $price =  $_POST['book_price'];
 
           
@@ -64,8 +85,8 @@ if(isset($_POST['create']))
                 }
         
 
-        $conn->close();
-
+    
+             $conn->close();
 }
 
 ?>
@@ -132,7 +153,7 @@ if(isset($_POST['create']))
                             <h6 class="mb-4">Books Details</h6>
                             <span style="color: red;">*</span><br>
                             <div class="form-floating mb-1">
-                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name" required>
+                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name">
                                 <label for="floatingInput">Enter your book name</label>
                                 <!-- <span style="color: red;">  </span> -->
                             </div>
@@ -178,18 +199,18 @@ if(isset($_POST['create']))
                                 <label for="floatingInput">Book Pages</label>
                             </div>
                             <span style="color: red;">*</span><br>
-                            <div class="form-floating mb-1">
-                                <input type="text" class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" required>
+                            <div class="form-floating mb-1 ">
+                                <input type="text"  class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" required>
                                 <label for="floatingInput">Book Description</label>
                             </div>
                             <p>Select Category</p>
-                            <div class="form-floating mb-1">
+                            <div class="form-floating mb-1" >
                                 <select class="form-select" id="floatingSelect" name="book_type">
                                     <option value="Science" >Science</option>
                                     <option value="English">English</option>
                                 </select>
                             </div>
-                            <div class="d-flex">
+                            <div class="d-flex" style="gap: 1rem;">
                             <div> 
                             <button class="btn btn-success" type="submit" name="create">Create</button>
                             </div>
@@ -208,37 +229,90 @@ if(isset($_POST['create']))
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Book ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">price</th>
+                                        <th scope="col">filename</th>
+                                        <th scope="col">est_date</th>
+                                        <th scope="col">author</th>
+                                        <th scope="col">isnbno</th>
+                                        <th scope="col">publisher</th>
+                                        <th scope="col">pages</th>
+                                        <th scope="col">description</th>
+                                        <!-- <th scope="col">Quantity</th> -->
                                         <th scope="col">Action</th>
-                                    </tr>
+                                          </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                        <td>
-                                        <div class="d-flex">
-                                          
+                                      
+                                  <?php 
+                                  error_reporting(0);
+ 
+                                  $msg = "";
+                                  
+                                  $servername = "localhost";
+                                  $username = "root";
+                                  $password = "";
+                                  $dbname = "book_store";
+                                  
+                                  // Create connection
+                                  $conn = new mysqli($servername, $username, $password, $dbname);
+                                  // Check connection
+                                  if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                  }
+
+                                    $sql = "SELECT * FROM book";
+                                    
+                                    
+                                    if ($result = $conn->query($sql)) 
+                                    {
+                                    
+                                        while ($row = $result->fetch_assoc()) 
+                                        {
+                                            $b_id      = $row["b_id"];
+                                            $b_name     = $row["b_name"];
+                                            $b_price    = $row["b_price"];
+                                            $b_filename = $row["b_filename"];
+                                            $b_est_date = $row["b_est_date"];
+                                            $b_author   = $row["b_author"];
+                                            $b_isbnno   = $row["b_isbnno"];
+                                            $b_publisher= $row["b_publisher"];
+                                            $b_pages    = $row["b_pages"];
+                                            $b_description = $row["b_description"];
+                                            // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
+                                      
+                                   
+                                  ?>
+
+                                  <tr>
+                                    <td> <?php echo $b_id  ?> </td>
+                                    <td> <?php echo $b_name  ?> </td>
+                                    <td> <?php echo $b_price  ?> </td>
+                                    <td> <?php echo $b_filename  ?> </td>
+                                    <td> <?php echo $b_est_date  ?> </td>
+                                    <td> <?php echo $b_author  ?> </td>
+                                    <td> <?php echo $b_isbnno  ?> </td>
+                                    <td> <?php echo $b_publisher  ?> </td>
+                                    <td> <?php echo $b_pages  ?> </td>
+                                    <td> <?php echo $b_description  ?> </td>
+                                    <td><div class="d-flex">
                                           <div> <button type="button" class="btn btn-success m-2">Update</button></div>
-                                          <div> <button type="button" class="btn btn-primary m-2">Delete</button></div>
-                                            
-                                          </div>
-                                        </td>
-                                    </tr>
-                                   
-                                   
+                                          <div> <button type="button" class="btn btn-primary m-2">Delete</button></div>  
+                                    </div></td>
+                                  </tr>
+                                  
+                                   <?php 
+                                     }
+                                    }
+                                    $conn->close();
+                                   ?>
                                 </tbody>
                             </table>
                         </div>
+                          <!-- <div> <button type="button" class="btn btn-success m-2">Update</button></div>
+                                          <div> <button type="button" class="btn btn-primary m-2">Delete</button></div>
+                                             -->
                  
             
                     <!-- <div class="col-sm-12 col-xl-6">
@@ -446,6 +520,7 @@ if(isset($_POST['create']))
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
