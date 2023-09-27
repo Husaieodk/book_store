@@ -75,7 +75,7 @@
             </div>
         </header>
           
-<div class="container text-center">
+         <div class="container text-center">
          <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
             <div class="col">
             <div class="p-3">
@@ -111,11 +111,12 @@
             </div>
             </div>
          </div>
-</div>   
+         </div>   
             
         <!-- Section-->
 
-
+        <div class="container ">
+        <div class="row row-cols-2 row-cols-lg-5 g-3 g-lg-3 mt-1">
         <?php 
                                   error_reporting(0);
  
@@ -158,42 +159,33 @@
                                             $b_pages    = $row["b_pages"];
                                             $b_description = $row["b_description"];
                                             // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
-                                      
+                                            
                                    
                                   ?>
-   <div class="d-flex">
-    <div class="container text-center">
-        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
+    
 
            
-                <div class="col" style="background-color: #f1efef; width:185.99px" >
-                  <img  style="width: 185.99px; height:186px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:200px" >
+                  <img class="mt-1" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
-                <p class="text-center" style="color: #f85606;"><?php echo $b_name ?></p>
-                <p class="p-3"><?php echo "Rs." .$b_price ?></p>
-                <a class="btn btn-outline-dark text-center p-3" href="view.php">View Product</a>
+                <div > <p class="" style="color: black"><?php echo $b_name ?></p></div>
+                <div class="p-1 text-center"><?php echo "Rs." .$b_price ?></div>
+                <div class="text-center p-2"><a class="btn btn-outline-dark" href="view.php">View Product</a></div>
                 </div>
             
-            
-        </div> 
-    </div>
-   </div>         
+               
     
-    <!-- <div class="container text-center">
-  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-    <div class="col">
-      <div class="p-3">Row column</div>
-    </div>
-  </div>
-    </div> -->
-           
+  
+            
 
             <?php 
                                      }
                                     }
                                     $conn->close();
-                                   ?> 
-
+            ?> 
+                 
+           </div> 
+        </div> 
         <!-- most view -->
         
         <!-- <div class="container border-radius:1rem"  >
