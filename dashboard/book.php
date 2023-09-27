@@ -21,7 +21,9 @@ if(isset($_POST['create']))
         //  $name = $_POST['book_name'];
 
                
-                   $name = $_POST['book_name'];
+                   $name = ucwords ($_POST['book_name']);
+                   
+
                 //    $sql="select * from book where (b_name =' $name ')";
 
                 //    $res=mysqli_query($conn,$sql);

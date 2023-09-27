@@ -75,7 +75,7 @@
             </div>
         </header>
           
-         <div class="container text-center">
+<div class="container text-center">
          <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
             <div class="col">
             <div class="p-3">
@@ -111,10 +111,10 @@
             </div>
             </div>
          </div>
-         </div>   
+</div>   
             
         <!-- Section-->
-<section class="">
+
 
         <?php 
                                   error_reporting(0);
@@ -133,6 +133,7 @@
                                     die("Connection failed: " . $conn->connect_error);
                                   }
 
+                                //   $num =1;
                                     $sql = "SELECT * FROM book ";
                                     
                                     
@@ -141,6 +142,11 @@
                                     
                                         while ($row = $result->fetch_assoc()) 
                                         {
+                                        
+                                        //   echo  $num++;
+                                         
+                                          
+                                          
                                             $b_id      = $row["b_id"];
                                             $b_name     = $row["b_name"];
                                             $b_price    = $row["b_price"];
@@ -155,44 +161,39 @@
                                       
                                    
                                   ?>
+   <div class="d-flex">
+    <div class="container text-center">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
 
-                                 
-                                  
-                                  
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
-                    <div class="col mb-3">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img src="../dashboard/image/<?php echo $b_filename?>">
-                            <!-- Product details-->
-                            <hr>
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <?php echo $b_name ?>
-                                    <h5 class="fw-bolder">
-                                    <!-- Product price-->
-                                    <?php echo "Rs." .$b_price ?>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="view.php">View options</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    
+           
+                <div class="col" style="background-color: #f1efef; width:185.99px" >
+                  <img  style="width: 185.99px; height:186px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
+                <p class="text-center" style="color: #f85606;"><?php echo $b_name ?></p>
+                <p class="p-3"><?php echo "Rs." .$b_price ?></p>
+                <a class="btn btn-outline-dark text-center p-3" href="view.php">View Product</a>
                 </div>
-            </div>
+            
+            
+        </div> 
+    </div>
+   </div>         
+    
+    <!-- <div class="container text-center">
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <div class="col">
+      <div class="p-3">Row column</div>
+    </div>
+  </div>
+    </div> -->
+           
 
             <?php 
                                      }
                                     }
                                     $conn->close();
                                    ?> 
-</section>
+
         <!-- most view -->
         
         <!-- <div class="container border-radius:1rem"  >
@@ -226,7 +227,7 @@
                         <hr>
                       <ul class="list-group list-group-flush ul-style mt-5" style="list-style-type: none;">
                       <h3 class="footer-text">Digital Library</h3>
-                       &copy; 2020-<?php echo date("Y"); ?>
+                      
                     
                       </ul>
                      </div>
@@ -263,6 +264,7 @@
                       </div>
                 </div>
                 </div></footer> -->
+                
                 <?php  require_once('main/footer.php'); ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

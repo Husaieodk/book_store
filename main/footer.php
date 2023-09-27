@@ -32,14 +32,14 @@
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 </head>
 <body>
-<footer class="py-5 bg-dark">
+<footer class="py-5 bg-dark mt-5">
             <div style="background-color:#212529; height :15rem;">
             
                 <div class="d-flex justify-content-center  container" style="gap: 8rem;  ">
                     <div >
                         <hr>
                       <ul class="list-group list-group-flush ul-style mt-5" style="list-style-type: none;">
-                      <h3 class="footer-text">Digital Library</h3>
+                      <h3 class="footer-text">Digital Book Store</h3>
                        &copy; 2020-<?php echo date("Y"); ?>
                     
                       </ul>
