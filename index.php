@@ -166,7 +166,7 @@
 
            
                 <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:200px" >
-                  <img class="mt-1" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                  <img class="rounded-3" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
                 <div > <p class="" style="color: black"><?php echo $b_name ?></p></div>
                 <div class="p-1 text-center"><?php echo "Rs." .$b_price ?></div>
