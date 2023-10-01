@@ -67,8 +67,11 @@
        <?php  require_once('main/header.php'); ?>
        </div>
 
-       <div class="container ">
+       <div class="container-md">
         <div class="row row-cols-2 row-cols-lg-5 g-3 g-lg-3 mt-1">
+           <!-- <div class="col">
+             <div class="p-3"></div>
+           </div> -->
         <?php 
                                   error_reporting(0);
  
@@ -88,9 +91,9 @@
 
                                 //   $num =1;
                                   
-                                      echo "view no".$view;
                                      
-                                    $sql = "SELECT * FROM book  where b_id = '8'";
+                                     
+                                    $sql = "SELECT * FROM book  where b_id = '14'";
                                     
                                     
                                     if ($result = $conn->query($sql)) 
@@ -120,13 +123,23 @@
     
 
            
-                <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:200px" >
-                  <img class="rounded-3" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:45rem" >
+                       <div class="d-flex">
+
+                       <div>
+                             <img class="" style="width: 320px; height:320px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                        </div>
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
-                <div > <p class="" style="color: black"><?php echo $b_name ?></p></div>
-                <div class="p-1 text-center"><?php echo "Rs." .$b_price ?></div>
-                <div class="p-1 text-center"><?php echo "Pages:" . $b_pages?></div>
-                <div class="p-1 text-center"><?php echo "Publisher:"." ".  $b_publisher?></div>
+                        <div class="p-3"> 
+                          <?php echo $b_name ?>
+                          <div class="pt-2"><?php echo "Rs." .$b_price ?></div>
+                          <div class="pt-1"><?php echo "Pages:" . $b_pages?></div>
+                        </div>
+
+                       </div>
+             
+              
+                <div class="p-1"><?php echo "Publisher:"." ".  $b_publisher?></div>
                  </div>
             
                
