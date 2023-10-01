@@ -34,7 +34,7 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
             <div class="container px-4 px-lg-5"style=" padding: 0.3rem;">
                 <a class="navbar-brand" href="#!">Digitel Library</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -62,6 +62,89 @@
                     </form>
                 </div>
             </div>
-        </nav>
+        </nav> -->
+       <div>
+       <?php  require_once('main/header.php'); ?>
+       </div>
+
+       <div class="container ">
+        <div class="row row-cols-2 row-cols-lg-5 g-3 g-lg-3 mt-1">
+        <?php 
+                                  error_reporting(0);
+ 
+                                  $msg = "";
+                                  
+                                  $servername = "localhost";
+                                  $username = "root";
+                                  $password = "";
+                                  $dbname = "book_store";
+                                  
+                                  // Create connection
+                                  $conn = new mysqli($servername, $username, $password, $dbname);
+                                  // Check connection
+                                  if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                  }
+
+                                //   $num =1;
+                                  
+                                      echo "view no".$view;
+                                     
+                                    $sql = "SELECT * FROM book  where b_id = '8'";
+                                    
+                                    
+                                    if ($result = $conn->query($sql)) 
+                                    {
+                                    
+                                        while ($row = $result->fetch_assoc()) 
+                                        {
+                                        
+                                        //   echo  $num++;
+                                         
+                                          
+                                          
+                                            $b_id      = $row["b_id"];
+                                            $b_name     = $row["b_name"];
+                                            $b_price    = $row["b_price"];
+                                            $b_filename = $row["b_filename"];
+                                            $b_est_date = $row["b_est_date"];
+                                            $b_author   = $row["b_author"];
+                                            $b_isbnno   = $row["b_isbnno"];
+                                            $b_publisher= $row["b_publisher"];
+                                            $b_pages    = $row["b_pages"];
+                                            $b_description = $row["b_description"];
+                                            // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
+                                            
+                                   
+                                  ?>
+    
+
+           
+                <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:200px" >
+                  <img class="rounded-3" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
+                <div > <p class="" style="color: black"><?php echo $b_name ?></p></div>
+                <div class="p-1 text-center"><?php echo "Rs." .$b_price ?></div>
+                <div class="p-1 text-center"><?php echo "Pages:" . $b_pages?></div>
+                <div class="p-1 text-center"><?php echo "Publisher:"." ".  $b_publisher?></div>
+                 </div>
+            
+               
+    
+  
+            
+
+            <?php 
+                                     }
+                                    }
+                                    $conn->close();
+            ?> 
+                 
+           </div> 
+        </div> 
+
+       <div>
+       <?php  require_once('main/footer.php'); ?>
+       </div>
     </body>
 </html>        

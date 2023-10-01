@@ -90,6 +90,9 @@ if(isset($_POST['create']))
     
              $conn->close();
 }
+// else{
+//     echo "Data is not submitted";  
+// }
 
 ?>
 

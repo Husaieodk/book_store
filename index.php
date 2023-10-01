@@ -170,7 +170,8 @@
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
                 <div > <p class="" style="color: black"><?php echo $b_name ?></p></div>
                 <div class="p-1 text-center"><?php echo "Rs." .$b_price ?></div>
-                <div class="text-center p-2"><a class="btn btn-outline-dark" href="view.php">View Product</a></div>
+                <div class="p-1 text-center"><?php echo "Pages:" . $b_pages?></div>
+                <div class="text-center p-2"><a  href="view.php?view=<?php echo $b_id ?>" class="btn btn-outline-dark">View Product</a></div>
                 </div>
             
                
