@@ -122,6 +122,8 @@ Roboto, -apple-system, BlinkMacSystemFont;">
                                             $b_isbnno   = $row["b_isbnno"];
                                             $b_publisher= $row["b_publisher"];
                                             $b_pages    = $row["b_pages"];
+                                            $b_type =$row["b_type"];
+                                            $b_language = $row["b_language"];
                                             $b_description = $row["b_description"];
                                             // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
                                             
@@ -164,7 +166,10 @@ Roboto, -apple-system, BlinkMacSystemFont;">
                     <div class="pt-2"><?php echo "ISBN Number:"." " .$b_isbnno ?></div>
                     <div class="pt-2"><?php echo "Publisher:"." " .$b_publisher ?></div>
                     <div class="pt-2"><?php echo "Pages:"." " .$b_pages ?></div>
+                    <div class="pt-2"><?php echo "Type:"." " .$b_type ?></div>
+                    <div class="pt-2"><?php echo "Language:"." " .$b_language ?></div>
                     <div class="pt-2"><?php echo "Description:"." " .$b_description ?></div>
+                    
                     </ul>
                 </div>
              </div> 

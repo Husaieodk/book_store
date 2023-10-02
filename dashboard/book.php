@@ -23,7 +23,7 @@ if(isset($_POST['create']))
                
                    $name = ucwords ($_POST['book_name']);
                  
-                 $language=  $_POST['book_language'];
+                //  $language=  $_POST['book_language'];
                 
                 
                    
@@ -49,12 +49,15 @@ if(isset($_POST['create']))
          $price =  $_POST['book_price'];
 
           
+
                     if (isset($_FILES["book_filename"])) 
                     {  
                         //    echo $n = $_POST['book_filename'];
                             $filename = $_FILES["book_filename"]["name"];
                             $tempname = $_FILES["book_filename"]["tmp_name"];
                             $folder = "./image/" . $filename;
+
+                            
                         
                             // Now let's move the uploaded image into the folder: image
                             if (move_uploaded_file($tempname, $folder)) 
@@ -69,14 +72,35 @@ if(isset($_POST['create']))
         $est_date =   $_POST['book_est_date'];
         $author =   ucwords  ($_POST['book_author']);
         $isnbno =     $_POST['book_isnbno'];
+              
+        $sql_isbn = "SELECT * FROM book WHERE b_isbnno='$isnbno'";
+
+        
         $publisher = ucwords ($_POST['book_publisher']);
         $pages =      $_POST['book_pages'];
         $description =ucwords ($_POST['book_description']);
+        $language = ucwords($_POST['book_language']);
+        $type = ucwords($_POST['book_topic']);
+
+        $res_isbn = mysqli_query($conn,  $sql_isbn);
+        if (mysqli_num_rows($res_isbn) > 0) {
+            echo "ISBN already exists";      
+          }
+        else{
+            $sql = "INSERT INTO book (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description,b_type,b_language) 
+         VALUES 
+         ('$name','$price','$filename','$est_date','$author','$isnbno','$publisher','$pages','$description','$type','$language')";
+
+        }  
+
+        //YYYY-MM-DD hh:mm:ss
+        // $u_time = date("y-m-d");
+       
         // echo $type =  $_POST['book_type'];
 
-         $sql = "INSERT INTO book (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
-         VALUES 
-         ('$name','$price','$filename','$est_date','$author','$isnbno','$publisher','$pages','$description')";
+        //  $sql = "INSERT INTO book (b_name,b_price,b_filename,b_est_date,b_author,b_publisher,b_pages,b_description,b_type,b_language) 
+        //  VALUES 
+        //  ('$name','$price','$filename','$est_date','$author','$publisher','$pages','$description','$language','$topic')";
 
 
 
@@ -89,6 +113,7 @@ if(isset($_POST['create']))
                 {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
+             
         
 
     
@@ -214,7 +239,7 @@ if(isset($_POST['create']))
                             </div>
                             <span style="color: red;">*</span><br>
                             <div class="form-floating mb-1 ">
-                                <input type="text"  class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" required>
+                                <input type="text"  class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" >
                                 <label for="floatingInput">Book Description</label>
                             </div>
                             <!-- <p>Select Language</p>
@@ -267,7 +292,7 @@ if(isset($_POST['create']))
                     
                     <div>
                         <div class="bg-secondary rounded p-4" style="overflow-x:auto;">
-                            <h6 class="mb-4">Color Table</h6>
+                            <h6 class="mb-4">Book Details</h6>
                             <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
@@ -280,7 +305,12 @@ if(isset($_POST['create']))
                                         <th scope="col">isnbno</th>
                                         <th scope="col">publisher</th>
                                         <th scope="col">pages</th>
-                                        <th scope="col">description</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Language</th>
+                                        <th scope="col">Upload Time</th>
+                                        <th scope="col">Description</th>
+
+
                                         <!-- <th scope="col">Quantity</th> -->
                                         <th scope="col">Action</th>
                                           </tr>
@@ -321,7 +351,11 @@ if(isset($_POST['create']))
                                             $b_isbnno   = $row["b_isbnno"];
                                             $b_publisher= $row["b_publisher"];
                                             $b_pages    = $row["b_pages"];
+                                            $b_type =$row["b_type"];
+                                            $b_language = $row["b_language"];
+                                            $b_u_time = $row["b_u_time"];
                                             $b_description = $row["b_description"];
+                                           
                                             // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
                                       
                                    
@@ -337,6 +371,9 @@ if(isset($_POST['create']))
                                     <td> <?php echo $b_isbnno  ?> </td>
                                     <td> <?php echo $b_publisher  ?> </td>
                                     <td> <?php echo $b_pages  ?> </td>
+                                    <td> <?php echo $b_language  ?> </td>
+                                    <td> <?php echo $b_type?> </td>
+                                    <td> <?php echo $b_u_time ?> </td>
                                     <td> <?php echo $b_description  ?> </td>
                                     <td><div class="d-flex">
                                           <!-- <div> <button type="button" class="btn btn-success m-2">Update</button></div> -->
