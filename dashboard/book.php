@@ -22,6 +22,10 @@ if(isset($_POST['create']))
 
                
                    $name = ucwords ($_POST['book_name']);
+                 
+                 $p1 =  $_POST['book_language'];
+                 echo "Language:" .$p1;
+                
                    
 
                 //    $sql="select * from book where (b_name =' $name ')";
@@ -127,6 +131,11 @@ if(isset($_POST['create']))
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+
+
 </head>
 
 <body>
@@ -158,7 +167,7 @@ if(isset($_POST['create']))
                             <h6 class="mb-4">Books Details</h6>
                             <span style="color: red;">*</span><br>
                             <div class="form-floating mb-1">
-                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name">
+                                <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Enter your book name" required>
                                 <label for="floatingInput">Enter your book name</label>
                                 <!-- <span style="color: red;">  </span> -->
                             </div>
@@ -208,14 +217,30 @@ if(isset($_POST['create']))
                                 <input type="text"  class="form-control" id="floatingInput" name="book_description" placeholder="Book Description" required>
                                 <label for="floatingInput">Book Description</label>
                             </div>
-                            <p>Select Category</p>
+                            <!-- <p>Select Language</p>
                             <div class="form-floating mb-1" >
-                                <select class="form-select" id="floatingSelect" name="book_type">
-                                    <option value="Science" >Science</option>
+                                <select class="form-select" id="floatingSelect" name="book_Language">
+                                    <option value="Tamil" >Tamil</option>
                                     <option value="English">English</option>
+                                    <option value="Sinhala">Sinhala</option>
+                                    <option value="Arabic">Arabic</option>
+                                    <option value="CustomOption">Add New</option>
                                 </select>
-                            </div>
-                            <div class="d-flex" style="gap: 1rem;">
+                            </div> -->
+                            <p>Select Language <span style="color: red;">*</span></p>
+                            
+                                   <div class="form-floating">
+                          <select name="book_language" class="form-select" id="floatingSelect" required onchange="if($(this).val()=='customOption'){$(this).hide().prop('disabled',true);$('input[name=book_language]').show().prop('disabled', false).focus();$(this).val(null);}">
+                                    <option value="Tamil" >Tamil</option>
+                                    <option value="English">English</option>
+                                    <option value="Sinhala">Sinhala</option>
+                                    <option value="Arabic">Arabic</option>
+                                    <option value="customOption">[type a custom value]</option>
+                         </select>
+                                   <input type="text" class="form-control" name="book_language" style="display:none;" disabled="disabled" onblur="if($(this).val()==''){$(this).hide().prop('disabled',true);$('select[name=book_language]').show().prop('disabled', false).focus();}">
+                                   </div>
+
+                            <div class="d-flex mt-2" style="gap: 1rem;">
                             <div> 
                             <button class="btn btn-success" type="submit" name="create">Create</button>
                             </div>
@@ -229,9 +254,9 @@ if(isset($_POST['create']))
                     </div>
                     
                     <div>
-                        <div class="bg-secondary rounded h-100 p-4">
+                        <div class="bg-secondary rounded p-4" style="overflow-x:auto;">
                             <h6 class="mb-4">Color Table</h6>
-                            <table class="table table-dark">
+                            <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">Book ID</th>
@@ -302,8 +327,11 @@ if(isset($_POST['create']))
                                     <td> <?php echo $b_pages  ?> </td>
                                     <td> <?php echo $b_description  ?> </td>
                                     <td><div class="d-flex">
-                                          <div> <button type="button" class="btn btn-success m-2">Update</button></div>
-                                          <div> <button type="button" class="btn btn-primary m-2">Delete</button></div>  
+                                          <!-- <div> <button type="button" class="btn btn-success m-2">Update</button></div> -->
+                                          <div> <button  type="button" class="btn btn-success m-2 " name="update"><a style="text-decoration: none; color:#f9f9f9" href="book.php?update=<?php echo $b_id ?>">Update</a></button></div>
+                                          <div> <button type="button" class="btn btn-primary m-2" name="delete"><a style="text-decoration: none; color:#f9f9f9" href="book.php?delete=<?php echo $b_id ?>">Delete</a></button></div>
+                                         
+                                          <!-- <div> <button type="button" class="btn btn-primary m-2">Delete</button></div>   -->
                                     </div></td>
                                   </tr>
                                   

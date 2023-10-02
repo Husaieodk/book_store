@@ -30,9 +30,11 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="design.css" rel="stylesheet">
 
     </head>
-    <body>
+    <body style="background-color: #efefef; font-family:FONT-FAMILY
+Roboto, -apple-system, BlinkMacSystemFont;">
         <!-- Navigation-->
         <!-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
             <div class="container px-4 px-lg-5"style=" padding: 0.3rem;">
@@ -89,11 +91,16 @@
                                     die("Connection failed: " . $conn->connect_error);
                                   }
 
+                                  if(isset($_GET['view']))
+                                  {
+                                     $va = $_GET['view'];
+                                  }
+
                                 //   $num =1;
                                   
+                              
                                      
-                                     
-                                    $sql = "SELECT * FROM book  where b_id = '14'";
+                                    $sql = "SELECT * FROM book  where b_id = '$va'";
                                     
                                     
                                     if ($result = $conn->query($sql)) 
@@ -119,28 +126,49 @@
                                             // (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
                                             
                                    
-                                  ?>
+                                 
+                                 ?>
     
 
-           
-                <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:45rem" >
+               <div>
+                <div class="col rounded-3 m-2" style="background-color:#ffffff; width:45rem" >
                        <div class="d-flex">
 
                        <div>
-                             <img class="" style="width: 320px; height:320px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                             <img class="pt-2" style="width: 320px; height:320px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
                         </div>
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
                         <div class="p-3"> 
                           <?php echo $b_name ?>
-                          <div class="pt-2"><?php echo "Rs." .$b_price ?></div>
+                          <div class="pt-2"><h1 style="color: #0d6efd;">Rs:<?php echo  $b_price ?></h1></div>
                           <div class="pt-1"><?php echo "Pages:" . $b_pages?></div>
+                          <div class="pt-1"><?php echo "Pages:" . $b_pages?></div>
+                          <div class="pt-1"><h4>Digital Book</h4></div>
+                          <div> <button type="button" class="button-29" name="view">Buy Now</button></div> 
+               
                         </div>
 
                        </div>
              
               
-                <div class="p-1"><?php echo "Publisher:"." ".  $b_publisher?></div>
+                <div class="p-1">w0er</div>
                  </div>
+
+             <div class="col rounded-3 m-2 mt-2" style="background-color:#ffffff; width:42rem">
+             <div class="m-3 pt-2" ><h2>Book Details</h2><hr></div>
+                <div class="row m-2">
+                    <ul>
+                    <div class="pt-2"><?php echo "Book Name:"." " .$b_name ?></div>
+                    <div class="pt-2"><?php echo "Establish Date:"." " .$b_est_date ?></div>
+                    <div class="pt-2"><?php echo "Author:"." " .$b_author ?></div>
+                    <div class="pt-2"><?php echo "ISBN Number:"." " .$b_isbnno ?></div>
+                    <div class="pt-2"><?php echo "Publisher:"." " .$b_publisher ?></div>
+                    <div class="pt-2"><?php echo "Pages:"." " .$b_pages ?></div>
+                    <div class="pt-2"><?php echo "Description:"." " .$b_description ?></div>
+                    </ul>
+                </div>
+             </div> 
+             </div>  
             
                
     
@@ -150,7 +178,11 @@
             <?php 
                                      }
                                     }
+                                    else {
+                                        echo "<h3> Not Found </h3>";
+                                    }
                                     $conn->close();
+                                    
             ?> 
                  
            </div> 

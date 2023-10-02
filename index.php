@@ -30,9 +30,12 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="design.css" rel="stylesheet">
 
+  
     </head>
-    <body>
+    <body style="background-color: #efefef; font-family:FONT-FAMILY
+Roboto, -apple-system, BlinkMacSystemFont;">
         <!-- Navigation-->
         <!-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
             <div class="container px-4 px-lg-5"style=" padding: 0.3rem;">
@@ -75,16 +78,15 @@
             </div>
         </header>
           
-         <div class="container text-center">
+         <div class="container-fluid text-center">
          <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-            <div class="col">
-            <div class="p-3">
-            <div class="d-flex">
-            <div>All Books</div>
-               <div>Digital Book</div>
-               <div>Physical Book</div>
-            </div>
-            </div>
+            <div class="dropdown">
+                <button class="dropbtn mt-2 rounded">Language</button>
+                <div class="dropdown-content">
+                    <a href="#">English</a>
+                    <a href="#">Tamil</a>
+                    <a href="#">Sinhala</a>
+                </div>
             </div>
             <div class="col">
             <div class="p-3"></div>
@@ -102,7 +104,7 @@
                          
                         </div>
                         <div>
-                        <button type="submit" class="btn btn-primary mt-2"  name="submit">Search</button>
+                        <button type="submit" class="button-29"  name="submit">Search</button>
                               
                         </div>
                              
@@ -165,14 +167,18 @@
     
 
            
-                <div class="col rounded-3 m-2" style="background-color: #f9f9f9; width:200px" >
-                  <img class="rounded-3" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
+                <div class="col rounded-3 m-2" style="background-color: #ffffff; width:200px" >
+                  <img class="" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
                 <div > <p class="" style="color: black"><?php echo $b_name ?></p></div>
                 <div class="p-1 text-center"><?php echo "Rs." .$b_price ?></div>
-                <div class="p-1 text-center"><?php echo "Pages:" . $b_pages?></div>
-                <div class="text-center p-2"><a  href="view.php?view=<?php echo $b_id ?>" class="btn btn-outline-dark">View Product</a></div>
-                </div>
+               
+                
+                <!-- <div> <button type="button" class="btn btn-secondary mb-2" name="view"><a style="text-decoration: none; color:#f9f9f9" href="view.php?view=">View </a></button></div> -->
+                 
+                <div> <button type="button" class="button-29" name="view"><a style="text-decoration: none; color:#f9f9f9" href="view.php?view=<?php echo $b_id ?>">View </a></button></div> 
+               
+            </div>
             
                
     
