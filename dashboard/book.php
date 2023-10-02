@@ -23,8 +23,8 @@ if(isset($_POST['create']))
                
                    $name = ucwords ($_POST['book_name']);
                  
-                 $p1 =  $_POST['book_language'];
-                 echo "Language:" .$p1;
+                 $language=  $_POST['book_language'];
+                
                 
                    
 
@@ -67,11 +67,11 @@ if(isset($_POST['create']))
                     }  
 
         $est_date =   $_POST['book_est_date'];
-        $author =     $_POST['book_author'];
+        $author =   ucwords  ($_POST['book_author']);
         $isnbno =     $_POST['book_isnbno'];
-        $publisher =  $_POST['book_publisher'];
+        $publisher = ucwords ($_POST['book_publisher']);
         $pages =      $_POST['book_pages'];
-        $description =$_POST['book_description'];
+        $description =ucwords ($_POST['book_description']);
         // echo $type =  $_POST['book_type'];
 
          $sql = "INSERT INTO book (b_name,b_price,b_filename,b_est_date,b_author,b_isbnno,b_publisher,b_pages,b_description) 
@@ -227,7 +227,7 @@ if(isset($_POST['create']))
                                     <option value="CustomOption">Add New</option>
                                 </select>
                             </div> -->
-                            <p>Select Language <span style="color: red;">*</span></p>
+                            <p><span style="color: red;">*</span>Select Language </p>
                             
                                    <div class="form-floating">
                           <select name="book_language" class="form-select" id="floatingSelect" required onchange="if($(this).val()=='customOption'){$(this).hide().prop('disabled',true);$('input[name=book_language]').show().prop('disabled', false).focus();$(this).val(null);}">
@@ -239,6 +239,18 @@ if(isset($_POST['create']))
                          </select>
                                    <input type="text" class="form-control" name="book_language" style="display:none;" disabled="disabled" onblur="if($(this).val()==''){$(this).hide().prop('disabled',true);$('select[name=book_language]').show().prop('disabled', false).focus();}">
                                    </div>
+
+                            <p><span style="color: red;">*</span>Book Topic </p>
+                            <div class="form-floating">
+                                    <select name="book_topic" class="form-select" id="floatingSelect" required onchange="if($(this).val()=='customOption'){$(this).hide().prop('disabled',true);$('input[name=book_topic]').show().prop('disabled', false).focus();$(this).val(null);}">
+                                                <option value="it" >IT</option>
+                                                <option value="commerce">Commerce</option>
+                                                <option value="science">Science</option>
+                                                <option value="geography">Geography</option>
+                                                <option value="customOption">[type a custom value]</option>
+                                    </select>
+                                   <input type="text" class="form-control" name="book_topic" style="display:none;" disabled="disabled" onblur="if($(this).val()==''){$(this).hide().prop('disabled',true);$('select[name=book_topic]').show().prop('disabled', false).focus();}">
+                            </div>      
 
                             <div class="d-flex mt-2" style="gap: 1rem;">
                             <div> 

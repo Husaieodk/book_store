@@ -80,14 +80,37 @@ Roboto, -apple-system, BlinkMacSystemFont;">
           
          <div class="container-fluid text-center">
          <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-            <div class="dropdown">
-                <button class="dropbtn mt-2 rounded">Language</button>
-                <div class="dropdown-content">
-                    <a href="#">English</a>
-                    <a href="#">Tamil</a>
-                    <a href="#">Sinhala</a>
-                </div>
+            <div>
+                    <div class="dropdown">
+                        <button class="dropbtn mt-2 rounded">Language</button>
+                        <div class="dropdown-content">
+                            <a href="#">English</a>
+                            <a href="#">Tamil</a>
+                            <a href="#">Sinhala</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn mt-2 rounded">Fields</button>
+                        <div class="dropdown-content">
+                            <a href="#">Science</a>
+                            <a href="#">IT</a>
+                            <a href="#">Geography</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn mt-2 rounded">Category</button>
+                        <div class="dropdown-content">
+                            <a href="#">Children</a>
+                            <a href="#">Adult</a>
+                            <a href="#">Grand</a>
+                        </div>
+                    </div>
+                    
             </div>
+           
+            
             <div class="col">
             <div class="p-3"></div>
             </div>
