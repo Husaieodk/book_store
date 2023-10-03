@@ -1,44 +1,57 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "book_store";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "book_store";
 
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }else{
-//     // echo"connected";
-// }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}else{
+    // echo"connected";
+}
 
 
 
-// if(isset($_POST['submit']))
-// {
+if(isset($_POST['submit']))
+{
       
-//    $name = $_POST['user_name'];
-//    $gmail =  $_POST['user_gmail'];
-//    $password =  $_POST['user_password'];
-//    $e_password = md5($password);
-//     echo $name;
+   $name = $_POST['user_name'];
+   $gmail =  $_POST['user_gmail'];
+   $password =  $_POST['user_password'];
+   $e_password = md5($password);
+  
+   $sql_gmail = "SELECT * FROM user WHERE user_gmail='$gmail'";
+        $res_gmail = mysqli_query($conn, $sql_gmail);
 
-//    $sql = "INSERT INTO user (user_name, user_gmail, user_password)
-// VALUES ('$name', '$gmail', '$e_password')";
+        if (mysqli_num_rows($res_gmail) > 0) {
+          echo "Gmail already taken";      
+        }
+        else{
+                
+          $sql = "INSERT INTO user (user_name, user_gmail, user_password)
+          VALUES ('$name', '$gmail', '$e_password')";
+
+        }
+
+ 
 
 
 
-// if ($conn->query($sql) === TRUE) {
-//   header("Location: Login.php");
-// exit();
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-//   }
+                if ($conn->query($sql) === TRUE) {
+                  header("Location: Login.php");
+                exit();
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                  }
+
+                  
   
 
-//  $conn->close();
-// }
+ $conn->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,13 +91,13 @@
                       <form class="row g-3 needs-validation"  action="Signup.php" method="post" novalidate>
                         <div class="col-12">
                           <label for="yourName" class="form-label">Please, enter your name!</label>
-                          <input type="text" name="user_name" class="form-control" id="yourName">
+                          <input type="text" name="user_name" class="form-control" id="yourName" required>
                           <div class="invalid-feedback">Please, enter your name!</div>
                         </div>
     
                         <div class="col-12">
                           <label for="yourEmail" class="form-label">Please enter a valid Email adddress!</label>
-                          <input type="email" name="user_gmail" class="form-control" id="yourEmail">
+                          <input type="email" name="user_gmail" class="form-control" id="yourEmail" required>
                           <!-- <div class="invalid-feedback">Please enter a valid Email adddress!</div> -->
                         </div>
     

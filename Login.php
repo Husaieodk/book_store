@@ -1,59 +1,58 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "book_store";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "book_store";
 
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }else{
-//     // echo"connected";
-// }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}else{
+    // echo"connected";
+}
 
 
 
-// if(isset($_POST['']))
-// {
+if(isset($_POST['login']))
+{
       
-//    $l_name = $_POST['user_name'];
-//    $l_gmail =  $_POST['user_gmail'];
-//    $password =  $_POST['user_password'];
-//    $e_password = md5($password);
-//     echo $l_gmail;
-
-//     $sql="select * from user where (email='$l_gmail');";
-
-//     // $res=mysqli_query($conn,$sql);
-
-//     if (mysqli_num_rows($res) > 0) {
-      
-//       $row = mysqli_fetch_assoc($res);
-//       if($l_gmail ==isset($row['user_gmail']))
-//       {
-//         header("Location: index.php");
-//         exit();
-//       }
-//       else
-//       {
-//          echo "email wrong";
-//       }
-//     }
-
-
-
-// if ($conn->query($sql) === TRUE) {
-//   header("Location: Login.php");
-// exit();
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-//   }
+  
+  echo $gmail =  $_POST['user_gmail'];
+   $password =  $_POST['user_password'];
+ echo  $e_password = md5($password);
+  
   
 
-//  $conn->close();
-// }
+        $sql_gmail = "SELECT * FROM user WHERE user_gmail='$gmail' AND user_password='$e_password' ";
+        // $sql_password = "SELECT * FROM user WHERE user_password='$e_password'";
+        $res_gmail = mysqli_query($conn, $sql_gmail);
+        // $res_password = mysqli_query($conn, $password);
+
+        if (mysqli_num_rows($res_gmail) > 0) {
+          echo "Sorry... username already taken"; 
+        }      
+        else{
+               header("Location: no.php");
+                exit(); 
+        } 
+ 
+
+
+
+                if ($conn->query($sql) === TRUE) {
+                  // header("Location: Login.php");
+                // exit();
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                  }
+
+                  
+  
+
+ $conn->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +98,7 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="userpassword" class="form-control" id="yourPassword" required>
+                      <input type="password" name="user_password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 

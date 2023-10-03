@@ -1,8 +1,8 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "book_store";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "book_store";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,10 +22,10 @@ if(isset($_POST['user_name']))
    $gmail =  $_POST['user_gmail'];
    $password =  $_POST['user_password'];
    $e_password = md5($password);
-   echo $name;
-   echo $gmail;
-   echo $password;
-   echo $e_password;
+  //  echo $name;
+  //  echo $gmail;
+  //  echo $password;
+  //  echo $e_password;
 
   
  
