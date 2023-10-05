@@ -32,6 +32,11 @@
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link href="design.css" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="more.js">
+	   </script>
+
   
     </head>
     <body style="background-color: #efefef; font-family:FONT-FAMILY
@@ -189,7 +194,7 @@ Roboto, -apple-system, BlinkMacSystemFont;">
                                   ?>
     
 
-           
+                
                 <div class="col rounded-3 m-2" style="background-color: #ffffff; width:200px" >
                   <img class="" style="width: 187.5px; height:187.5px" src="../dashboard/image/<?php echo $b_filename?>"      alt="pic">
                 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtyEpcgbyT48tITkMuYl_sB2KUi4uzDLiXQ&usqp=CAU" width="185.99px" height="186px" alt=""> -->
@@ -200,8 +205,9 @@ Roboto, -apple-system, BlinkMacSystemFont;">
                 <!-- <div> <button type="button" class="btn btn-secondary mb-2" name="view"><a style="text-decoration: none; color:#f9f9f9" href="view.php?view=">View </a></button></div> -->
                  
                 <div> <button type="button" class="button-29" name="view"><a style="text-decoration: none; color:#f9f9f9" href="view.php?view=<?php echo $b_id ?>">View </a></button></div> 
-               
-            </div>
+                                        
+            </div>  
+            
             
                
     
@@ -213,9 +219,12 @@ Roboto, -apple-system, BlinkMacSystemFont;">
                                     }
                                     $conn->close();
             ?> 
+            
                  
            </div> 
+           
         </div> 
+       
         <!-- most view -->
         
         <!-- <div class="container border-radius:1rem"  >
