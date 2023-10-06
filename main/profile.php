@@ -50,13 +50,15 @@
                             My Book 
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button> -->
-                        <button class="btn btn-outline-dark " type="submit">
+                        <!-- <button class="btn btn-outline-dark " type="submit">
                           
                            <a href="login.php" style="text-decoration: none; color: black;" class="btn-log"> Log in</a>
-                        </button>
+                        </button> -->
                         <button class="btn btn-outline-dark" type="submit">
-                            <a href="Signup.php" style="text-decoration: none; color: black;"> Sign Up</a>
+                            <a href="" style="text-decoration: none; color: black;"> Logout</a>
                         </button>
+                        <p>profile</p>
+                        
                     </form>
                 </div>
             </div>

@@ -15,15 +15,20 @@ if ($conn->connect_error) {
 } else {
   // echo"connected";
 }
+session_start();
 
 
 
 if (isset($_POST['submit'])) {
+  
 
   $name = $_POST['user_name'];
   $gmail =  $_POST['user_gmail'];
   $password =  $_POST['user_password'];
 $e_password = password_hash($password, PASSWORD_DEFAULT);
+
+  
+   
 
   if (!empty($gmail)) {
     $sql_gmail = "SELECT * FROM user WHERE user_gmail='$gmail'";
@@ -37,6 +42,8 @@ $e_password = password_hash($password, PASSWORD_DEFAULT);
       $sql = "INSERT INTO user (user_name, user_gmail, user_password)
           VALUES ('$name', '$gmail', '$e_password')";
       if ($conn->query($sql) === TRUE) {
+        $_SESSION['user_name'] = $name; // Store user name in session
+        $_SESSION['user_email'] = $gmail; // Store user email in session
         header("Location: Login.php");
         exit();
       } else {

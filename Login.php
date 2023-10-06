@@ -1,15 +1,6 @@
 <?php
 $login_success = false;
 
-// if(isset($_POST['login']))
-// {
-//  $o = $_POST['user_gmail'];
-//  $oo = $_POST['user_password'];
-
-//  echo $o;
-//  echo $oo;
-
-// } 
 $err_password = $err_gmail = " ";
 
 
@@ -32,22 +23,10 @@ if ($conn->connect_error) {
 
 if(isset($_POST['login']))
 {
-      
-  
-  //  $gmail =  $_POST['user_gmail'];
-  // $password =  $_POST['user_password'];
-  // echo $gmail;
-  // echo $password;
 
-  
-  
- 
- 
       $user_gmail = $_POST["user_gmail"];
       $entered_password = $_POST["user_password"];
 
-      // echo $user_gmail;
-      // echo $entered_password;
       
       // Assuming you have a database connection established
       $sql = "SELECT user_password FROM user WHERE user_gmail= '$user_gmail'";
@@ -62,27 +41,23 @@ if(isset($_POST['login']))
 
             if (password_verify($entered_password, $hashed_password)) {
               $login_success = true;
-                // header("Location: home.php");
+              // $loggedIn = true;
+               // header("Location: home.php");
                 // exit();
 
             } else {
               $err_password = "Invalid Password";
+              // $loggedIn = false;
             }
         } else {
             $err_gmail =  "Invalid Gmail";
+            // $loggedIn = false;
         }
     } else {
         echo "Error fetching data from database";
     }
   
-  
-  
-       
-
-
-        
-  
-
+ 
     // if ($conn->query($sql) === TRUE) {
     //   header("Location: home.php");
     // exit();
@@ -90,14 +65,6 @@ if(isset($_POST['login']))
     //     echo "Error: " . $sql . "<br>" . $conn->error;
     //   }
 
-
- 
-
-
-
-               
-                  
-  
    $conn->close();
 }
 ?>
@@ -132,9 +99,7 @@ if(isset($_POST['login']))
                                   <?php if ($login_success) : ?>
                       <div class="alert alert-success alert-dismissible fade show" role="alert">
                           <strong>Login Successful!</strong>
-                          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button> -->
+                         
                       </div>
                   <?php endif; ?>
                  
@@ -148,27 +113,19 @@ if(isset($_POST['login']))
                   <form action="" method="post"  class="row g-3 needs-validation" >
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Gmail</label>
-                      <div class="input-group has-validation">
-                        <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
+                      <label for="yourUsername" class="form-label">Please enter your gmail.</label>
                         <input type="text" name="user_gmail" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your gmail.</div>
-                      </div>
-                      <span> <?php echo $err_gmail ?></span>
+                        <span style="color: red;"> <?php echo $err_gmail ?></span>
                     </div>
+                    
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
+                      <label for="yourPassword" class="form-label">Please enter your password!</label>
                       <input type="password" name="user_password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                      <span style="color: red;"> <?php echo $err_password ?></span>
                     </div>
+                   
 
-                    <!-- <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div> -->
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
                     </div>
@@ -179,6 +136,8 @@ if(isset($_POST['login']))
                    
                     
                   </form>
+
+                         
                   
 
                 </div>
@@ -195,7 +154,6 @@ if(isset($_POST['login']))
     </div>
   </main>
 
-<!-- Add these lines in the <head> section of your HTML file -->
 
 
 

@@ -291,8 +291,9 @@ if (isset($_POST['create'])) {
                                     <th scope="col">isnbno</th>
                                     <th scope="col">publisher</th>
                                     <th scope="col">pages</th>
-                                    <th scope="col">Type</th>
                                     <th scope="col">Language</th>
+                                    <th scope="col">Field</th>
+                                   
                                     <th scope="col">Upload Time</th>
                                     <th scope="col">Description</th>
 
