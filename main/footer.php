@@ -32,15 +32,14 @@
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 </head>
 <body>
-<footer class="py-5 bg-dark mt-5">
-            <div style="background-color:#212529; height :15rem;">
+<footer class="py-5 mt-5" style="background-color:#0071dc;">
+            <div>
             
                 <div class="d-flex justify-content-center  container" style="gap: 8rem;  ">
-                    <div >
-                        <hr>
+                    <div>
                       <ul class="list-group list-group-flush ul-style mt-5" style="list-style-type: none;">
                       <h3 class="footer-text">Digital Book Store</h3>
-                       &copy; 2020-<?php echo date("Y"); ?>
+                       <h5 style="color: whitesmoke;">&copy; 2020-<?php echo date("Y"); ?></h5>
                     
                       </ul>
                      </div>
@@ -71,7 +70,7 @@
                           <h5 class="footer-text">News</h5>
                           <input type="text" id="enableTextInput1" class="form-control" name="news" autocomplete="off" placeholder="Enter your Mail">
                          
-                                  <button type="submit" class="btn btn-primary mt-2"  name="submit">subscribe</button>
+                                  <button type="submit" class="btn btn-primary mt-2" style="background-color: black;"  name="submit">subscribe</button>
                                        
                          </div>
                       </div>

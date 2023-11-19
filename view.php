@@ -33,7 +33,7 @@
   <link href="design.css" rel="stylesheet">
 
     </head>
-    <body style="background-color: #efefef; font-family:FONT-FAMILY
+    <body style="background-color: white; font-family:FONT-FAMILY
 Roboto, -apple-system, BlinkMacSystemFont;">
         <!-- Navigation-->
         <!-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">

@@ -45,6 +45,12 @@ if(isset($_POST['login']))
                // header("Location: home.php");
                 // exit();
 
+               // Set a cookie if login is successful
+               if ($login_success) {
+                setcookie("user_gmail", $user_gmail, time() + (86400 * 30), "/"); // This sets a cookie for 30 days
+            }
+
+
             } else {
               $err_password = "Invalid Password";
               // $loggedIn = false;
@@ -96,7 +102,7 @@ if(isset($_POST['login']))
                 <div class="card-body">
                                  
                 <!-- when enter user gmail and password correctly show alert message -->
-                                  <?php if ($login_success) : ?>
+                  <?php if ($login_success) : ?>
                       <div class="alert alert-success alert-dismissible fade show" role="alert">
                           <strong>Login Successful!</strong>
                          
@@ -155,6 +161,21 @@ if(isset($_POST['login']))
   </main>
 
 
+<!-- Add this script at the end of your HTML file, after jQuery and before </body> -->
+<script>
+$(document).ready(function() {
+    var userGmailCookie = getCookie("user_gmail");
+    if (userGmailCookie) {
+        console.log("User Gmail Cookie:", userGmailCookie);
+    }
+});
+
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+}
+</script>
 
 
 </body>

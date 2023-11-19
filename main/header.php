@@ -30,18 +30,25 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <style>
+    .text_color{
+        color: #fff !important;
+        font-size: 1.5rem !important;
+    }
+    
+   </style> 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 255, 255);">
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #0071dc;">
             <div class="container px-4 px-lg-5"style=" padding: 0.3rem;">
-                <a class="navbar-brand" href="#!">Digital Book Store</a>
+                <a class="navbar-brand text_color" href="#!" >Bookly</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Service</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link active text_color" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active text_color" aria-current="page" href="#!">Service</a></li>
+                        <li class="nav-item"><a class="nav-link text_color" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link text_color" href="#!">Contact Us</a></li>
                         
                     </ul>
                     <form class="d-flex " style="gap: 0.5rem;">
@@ -50,11 +57,11 @@
                             My Book 
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button> -->
-                        <button class="btn btn-outline-dark " type="submit">
-                          
-                           <a href="login.php" style="text-decoration: none; color: black;" class="btn-log"> Log in</a>
-                        </button>
                         <button class="btn btn-outline-dark" type="submit">
+                          
+                           <a href="login.php" style="text-decoration: none; color: black;" class="btn-log "> Log in</a>
+                        </button>
+                        <button class="btn btn-outline-dark " type="submit">
                             <a href="Signup.php" style="text-decoration: none; color: black;"> Sign Up</a>
                         </button>
                     </form>
